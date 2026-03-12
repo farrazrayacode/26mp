@@ -20,8 +20,9 @@ class WorkOrderController extends Controller
 
     //menyimpan detail WO
     public function update(Request $request, $id){
+
         $request->validate([
-            'km_in' => 'required|integer',
+            'km_in' => 'required|numeric',
             'complaint' => 'required|string',
             'mechanic' => 'required|string',
         ]);
@@ -32,7 +33,7 @@ class WorkOrderController extends Controller
         $woNumber = 'WO-'.str_pad($record->id, 5, '0', STR_PAD_LEFT);
 
         $record->update([
-            'km_in' => $request->km_in,
+            'km_in' => str_replace('.','', $request->km_in),
             'complaint' => $request->complaint,
             'mechanic' => $request->mechanic,
             'wo_number' => $woNumber,
