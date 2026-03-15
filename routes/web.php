@@ -4,6 +4,10 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GateInController;
 use App\Http\Controllers\Admin\WorkOrderController;
+use App\Http\Controllers\Admin\EstimasiController;
+use App\Http\Controllers\Admin\InvoiceController;
+use App\Http\Controllers\Admin\GateOutController;
+use App\Http\Controllers\Admin\RiwayatController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,6 +36,25 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     //Work order
     Route::get('/work-order', [WorkOrderController::class, 'index'])->name('work-order.index');
     Route::post('/work-order/{id}', [WorkOrderController::class, 'update'])->name('work-order.update');
+
+    //Estimasi
+
+    Route::get('/estimasi', [EstimasiController::class, 'index'])->name('estimasi.index');
+    Route::get('/estimasi/{id}', [EstimasiController::class, 'show'])->name('estimasi.show');
+    Route::post('/estimasi/{id}', [EstimasiController::class, 'store'])->name('estimasi.store');
+
+    //invoice 
+    Route::get('/invoice', [InvoiceController::class, 'index'])->name('invoice.index');
+    Route::get('/invoice/{id}', [InvoiceController::class, 'show'])->name('invoice.show');
+    Route::post('/invoice/{id}/payment', [InvoiceController::class, 'payment'])->name('invoice.payment');
+
+    //gate out
+    Route::get('/gate-out', [GateOutController::class, 'index'])->name('gate-out.index');
+    Route::patch('/gate-out/{id}', [GateOutController::class, 'process'])->name('gate-out.process');
+
+    //riwayat
+    Route::get('/riwayat', [RiwayatController::class, 'index'])->name('riwayat.index');
 });
+
 
 require __DIR__.'/auth.php';

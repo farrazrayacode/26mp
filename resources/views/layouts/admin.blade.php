@@ -73,7 +73,7 @@
                 Work Order
             </a>
 
-            <a href="#"
+            <a href="{{ route('admin.estimasi.index') }}"
                 class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium mb-0.5 transition text-gray-600 hover:bg-gray-50">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
@@ -81,7 +81,7 @@
                 Estimasi
             </a>
 
-            <a href="#"
+            <a href="{{ route('admin.invoice.index') }}"
                 class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium mb-0.5 transition text-gray-600 hover:bg-gray-50">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
@@ -89,12 +89,18 @@
                 Invoice
             </a>
 
-            <a href="#"
+            <a href="{{ route('admin.gate-out.index') }}"
                 class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium mb-0.5 transition text-gray-600 hover:bg-gray-50">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
                 </svg>
                 Gate Out
+            </a>
+
+            <a href="{{ route('admin.riwayat.index') }}"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium mb-0.5 transition
+                {{ request()->routeIs('admin.riwayat.*') ? 'bg-blue-50 text-blue-600' : 'text-gray-600 hover:bg-gray-50' }}">
+                 Riwayat
             </a>
 
             <div class="border-t border-gray-100 my-3"></div>
