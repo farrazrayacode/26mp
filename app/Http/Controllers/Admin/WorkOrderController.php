@@ -11,7 +11,7 @@ class WorkOrderController extends Controller
     //menampilkan halaman work order
     public function index(){
         $records = ServiceRecord::with(['customer','vehicle'])
-        ->where('status', 'Menunggu WO')
+        ->whereIn('status', ['Menunggu WO', 'Menunggu Estimasi'])
         ->orderBy('created_at', 'desc')
         ->get();
 
@@ -42,5 +42,11 @@ class WorkOrderController extends Controller
 
         return redirect()->route('admin.work-order.index')
         ->with('success', 'Work Order '.$woNumber.' berhasil dibuat!');
+    }
+
+    //print work order
+    public function print($id){
+        $record = ServiceRecord::with(['customer', 'vehicle'])->findOrFail($id);
+        return view('admin.work-order.print', compact('record'));
     }
 }

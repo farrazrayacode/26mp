@@ -36,6 +36,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     //Work order
     Route::get('/work-order', [WorkOrderController::class, 'index'])->name('work-order.index');
     Route::post('/work-order/{id}', [WorkOrderController::class, 'update'])->name('work-order.update');
+        Route::get('/work-order/{id}/print', [WorkOrderController::class, 'print'])->name('work-order.print');
 
     //Estimasi
 
