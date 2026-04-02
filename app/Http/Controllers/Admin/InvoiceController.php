@@ -99,4 +99,12 @@ class InvoiceController extends Controller
         return redirect()->route('admin.invoice.index')
         ->with('success', 'Pembayaran diterima! Kendaraan siap Gate Out.');
     }
+
+    //print
+    public function print($id){
+        $record = ServiceRecord::with(['customer', 'vehicle', 'estimationItems', 'invoice'])
+        ->findOrFail($id);
+
+        return view('admin.invoice.print', compact('record'));
+    }
 }

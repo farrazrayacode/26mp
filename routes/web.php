@@ -43,11 +43,14 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/estimasi', [EstimasiController::class, 'index'])->name('estimasi.index');
     Route::get('/estimasi/{id}', [EstimasiController::class, 'show'])->name('estimasi.show');
     Route::post('/estimasi/{id}', [EstimasiController::class, 'store'])->name('estimasi.store');
+    Route::get('/estimasi/{id}/print', [EstimasiController::class, 'print'])->name('estimasi.print');
 
     //invoice 
     Route::get('/invoice', [InvoiceController::class, 'index'])->name('invoice.index');
     Route::get('/invoice/{id}', [InvoiceController::class, 'show'])->name('invoice.show');
     Route::post('/invoice/{id}/payment', [InvoiceController::class, 'payment'])->name('invoice.payment');
+    Route::get('/invoice/{id}/print', [InvoiceController::class, 'print'])->name('invoice.print');
+
 
     //gate out
     Route::get('/gate-out', [GateOutController::class, 'index'])->name('gate-out.index');

@@ -56,14 +56,8 @@
                         <td class="px-6 py-4 text-gray-600">{{ $record->vehicle->type ?? '-' }}</td>
                         <td class="px-6 py-4 text-gray-600 font-medium">{{ $record->wo_number ?? '-' }}</td>
                         <td class="px-6 py-4">
-                            <span class="inline-flex items-center gap-1.5 bg-purple-50 text-purple-700 text-xs font-medium px-3 py-1.5 rounded-full">
-                                <span class="w-1.5 h-1.5 bg-purple-500 rounded-full"></span>
-                                {{ $record->status }}
-                            </span>
-                        </td>
-                        <td class="px-6 py-4">
                             <a href="{{ route('admin.estimasi.show', $record->id) }}"
-                                class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-4 py-1.5 rounded-lg transition">
+                            class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-4 py-1.5 rounded-lg transition">
                                 Buat Estimasi
                             </a>
                         </td>

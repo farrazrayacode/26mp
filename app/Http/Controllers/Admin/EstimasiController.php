@@ -93,4 +93,12 @@ class EstimasiController extends Controller
         return redirect()->route('admin.estimasi.index')
         ->with('success', 'Estimasi disetujui! Kendaraan masuk Proses Servis');
     }
+
+    //print
+        public function print($id){
+            $record = ServiceRecord::with(['customer', 'vehicle', 'estimationItems', 'invoice'])
+            ->findOrFail($id);
+
+            return view('admin.estimasi.print', compact('record'));
+        }
 }
